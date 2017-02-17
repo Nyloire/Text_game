@@ -1,35 +1,119 @@
-<!-- Button hover, changing innerhtml on click, change button text style so it looks clickable -->
-
-
 <html>
 <head>
-<style>
-	
-	body {background-color: #0d0d0d;}
-	div {box-shadow: 0px 0px 10px black;width: 70%;margin:0 auto;margin-top: 5%;text-align: center;}
-	p {text-align: center;color: white;padding:10px;font-family: Verdana, Geneva, sans-serif;}
-	button {font-family: Verdana, Geneva, sans-serif;text-align: center;background-color:#0d0d0d;color: white;border:none;text-decoration: none;cursor:pointer;padding=0px 0px;}
+	<style type="text/css">
 
-</style>
+	body {background-color: #0d0d0d;}
+
+	.descrip{box-shadow: 0px 0px 10px black;width: 70%;margin:0 auto;text-align: center;}
+	.act{width: 70%;margin:0 auto;text-align: center;}
+
+	p {text-align: center;color: #cccccc;padding:10px;font-family: Verdana, Geneva, sans-serif;}
+	
+	button {font-family: Verdana, Geneva, sans-serif; text-align: center; font-size: 15px; background-color:#0d0d0d; color: white;border:none; text-decoration: none; cursor:pointer; padding:0px 0px;}
+	
+	img {margin: 0px auto; width: 250px; display: block; padding:20px;}
+
+	</style>
 </head>
 <body>
 
-	<div id="descrip">
-		<p id="para"> This is a random <button type="button" onclick="Dog()">Dog</button> paragraph with random words and sentences for testing purposes. pine aples are sweet and sour. mushrooms are edible but also poisonous. dogs are soft and cute so are bunnies and kitties.</p>
+	<img src="pineswhite.svg" id="img"></img>
+
+	<div class="descrip">
+
+		<p id="description"></p>
+
 	</div>
-	<div>
-		<button type="button" onclick="Dog()">Dog</button>
-		<button type="button" onclick="Dog()">words</button>
+
+
+	<div class="act">
+
+		<p id="action">///</p>
+
 	</div>
+
 
 	<script type="text/javascript">
+		
+		var l = "forest";
+		var pl = 0;
 
-	function Dog()
-	{
-		para.innerhtml= "dsadsadsada";
-	}
+		//descriptions
+		function update()
+		{
+			
+			para = document.getElementById("description");
+			action = document.getElementById("action");
+
+			if (l=="forest")
+			{
+				para.innerHTML = 'you are in the forest. you see a <button type="button" onclick="portal()"><b>Portal</b></button> between two pines. you see a <button type="button" onclick="cabin()"><b>Cabin</b></button> in the distance';
+			}
+			else if (l=="field")
+			{
+				para.innerHTML = 'you walk between two pines and end up in a field. there is a willow tree. <br><br> <button type="button" onclick="back(\'forest\')"><b>GO BACK</b></button>';
+			}
+			else if (l=="cabin")
+			{
+				para.innerHTML = '<button type="button" onclick="porch()"><b>Porch</b></button> <br><br> <button type="button" onclick="back(\'field\')"><b>GO BACK</b></button>'
+			}
+			else if (l=="porch")
+			{
+				para.innerHTML = '<button type="button" onclick="logs()"><b>Pile of Logs</b></button> , <button type="button" onclick="chair()"><b>Rocking Chair</b></button> , <button type="button" onclick="door()"><b>Door</b></button> <br><br> <button type="button" onclick="back(\'cabin\')"><b>GO BACK</b></button>'
+			}
+
+			else
+			{
+				para.innerHTML='';
+			}
+			console.log(l);
+		}
+
+
+		function back(loc)
+		{
+			l = loc;
+			update();
+		}
+
+		//locations
+		function forest()
+		{
+			l = "forest";
+			update();
+		}
+		function portal()
+		{
+			l = "field";
+			update();
+		}
+		function cabin()
+		{
+			l = "cabin";
+			pl = "field";
+			update();
+		}
+		function porch()
+		{
+			l = "porch";
+			pl = "cabin";
+			update();
+		}
+		function chair()
+		{
+			l = "porch";
+			pl = "porch";
+			update();
+		}
+		function door()
+		{
+			l = "inside cabin";
+			pl = "porch";
+			update();
+		}
+
+		update();
 
 	</script>
-
 </body>
 </html>
