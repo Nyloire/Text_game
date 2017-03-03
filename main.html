@@ -2,35 +2,44 @@
 <head>
 	<style type="text/css">
 
-	body {background-color: #0d0d0d;}
+	body {background-color: white;}
 
-	.descrip{box-shadow: 0px 0px 10px black;width: 70%;margin:0 auto;text-align: center;}
-	.act{width: 70%;margin:0 auto;text-align: center;}
+	.descrip{width: 500px;height: 500px;text-align: center;}
+	.act{width: 500px; text-align: center;}
 
-	p {text-align: center;color: #cccccc;padding:10px;font-family: Verdana, Geneva, sans-serif;}
+	p {text-align: center;color: gray;padding:10px;font-family: Verdana, Geneva, sans-serif;}
 	
-	button {font-family: Verdana, Geneva, sans-serif; text-align: center; font-size: 15px; background-color:#0d0d0d; color: white;border:none; text-decoration: none; cursor:pointer; padding:0px 0px;}
+	button {font-family: Verdana, Geneva, sans-serif; text-align: center; font-size: 15px; background-color:white; color: #0d0d0d;border:none; text-decoration: none; cursor:pointer; padding:0px 0px;}
 	
-	img {margin: 0px auto; width: 250px; display: block; padding:20px;}
+	img {width: 250px;}
 
 	</style>
 </head>
 <body>
 
-	<img src="pineswhite.svg" id="img"></img>
+<div style="margin:auto;float:left;"><p style="text-align:left;">Water - thirsty<br><br> Food - Full<br><br> Sleep - Rested<br><br> Sanity - Sane</p></div>
 
-	<div class="descrip">
-
+<div style="margin: auto;width:1000px;padding:50px;margin-top:100px">
+	
+	<div class="descrip" style="margin:auto;float:left;">
+		<h1>GraveYard</h1>
 		<p id="description"></p>
 
+		<div class="act" style="margin:auto;">
+
+			<p id="action">///</p>
+
+		</div>
+
 	</div>
 
+	<div style="text-align: center;margin:auto;">
 
-	<div class="act">
-
-		<p id="action">///</p>
+		<img src="Tower.svg" id="img"></img>
 
 	</div>
+</div>
+
 
 
 	<script type="text/javascript">
@@ -90,25 +99,21 @@
 		function cabin()
 		{
 			l = "cabin";
-			pl = "field";
 			update();
 		}
 		function porch()
 		{
 			l = "porch";
-			pl = "cabin";
 			update();
 		}
 		function chair()
 		{
 			l = "porch";
-			pl = "porch";
 			update();
 		}
 		function door()
 		{
 			l = "inside cabin";
-			pl = "porch";
 			update();
 		}
 
